@@ -145,7 +145,12 @@ Once all those setup done, you can reboot your HT813. The FX0 and FXS led should
 
 ## Anonymous Caller
 
-The HT813 can block anonymous caller... but I decided to not activate the option. I use the Privacy Manager in the Inbound Route of FreePBX.
+It seems that with my settings the option Anonymous Call Rejection is not working... somehow when an anonymous arrive, it takes the line number as Caller ID (exemple: 012345789).
+
+The trick I use is to setup a new Inbound Routes in FreePBX with the following settings:
+
+    DID Number: 0123456789
+    CallerID Number: 0123456789
 
 ## Gain and echo problems
 
