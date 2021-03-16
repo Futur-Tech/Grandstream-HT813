@@ -2,21 +2,19 @@
 
 This is notes of my settings for using a Grandsteam HT813 with a french PSTN line with FreePBX.
 
-## Version
-
 FreePBX: 15.0.17.24
 
 Grandstream HT813: 1.0.9.1 
 
 ## Overall setup
 
-FX0 port -- PSTN line (tested with France Telecom POTS and Freebox Revolution router phone line)
+FX0 port <--> PSTN line (tested with France Telecom POTS and Freebox Revolution router phone line)
 
-FXS port -- analog phone
+FXS port <--> analog phone
 
-WAN port -- your network
+WAN port <--> your network
 
-LAN port -- whatever device... it will be bridged
+LAN port <--> whatever device... it will be bridged
 
 I assume that your FreePBX use PJSIP on port 5060 UDP.
 
@@ -32,15 +30,15 @@ Create an extension PJSIP for the analog phone. For the exemple I will use the e
 
 I use a SIP chan_pjsip Trunk.
 
-General
+#### General
 
     Trunk Name: 0123456789
-    Outbound CallerID: <0556302343>
+    Outbound CallerID: <0123456789>
     Asterisk Trunk Dial Options (Overide): TR
 
-The overide on Asterisk is in order to have a tone when outbound call are placed... there is a 10sec delay (any idea on how to reduce that would be great).
+The overide on Asterisk is in order to have a tone when outbound call are placed... there is a 10sec silence delay until the PSTN is actually connected (any idea on how to reduce that would be great).
 
-pjsip Settings - General
+#### pjsip Settings - General
 
     Username: 0123456789
     Secret: your_strong_password_with_letter_and_number_trunk
@@ -48,27 +46,27 @@ pjsip Settings - General
     Registration: Receive
     Context: from-trunk
 
-pjsip Settings - Advanced
+#### pjsip Settings - Advanced
 
     DTMF Mode: RFC 4733
     Trust RPID/PAI: Yes
     
-pjsip Settings - Codecs
+#### pjsip Settings - Codecs
 
     alaw
 
-I disabled all the other codecs... somehow I sometimes ran into trouble when call were coming in.
+I disabled all the other codecs... somehow I ran into troubles when call were coming in.
 
 ## HT813 Setup
 
-Find the device on your network and access it via http. Note: when I enabled https, I got into certificat trouble and I had to reset my box.
+Find the device on your network and access it via http. Note: when I enabled https, I got into certificat trouble and I had to reset my HT813.
 
 Default access: admin/admin
 
 ### Basic Settings
 
-Change End User Password.
-Change Viewer Password.
+- Change End User Password
+- Change Viewer Password
 
     Disable SSH: Yes
     Time Zone: GMT+01:00 Paris
@@ -82,9 +80,9 @@ Change Viewer Password.
 
 ### Advanced Settings
 
-Change Admin Password.
+- Change Admin Password
 
-If you have a VLAN for your VOIP then you can set it here. Be careful to have a DHCP server there or setup a fixed IP address.
+If you have a VLAN for your VOIP network then you can set it here. Be sure to have a DHCP server there or setup a fixed IP address.
 
     802.1Q/VLAN Tag: your_VLAN_ID
     
@@ -107,7 +105,7 @@ Under *Firmware Upgrade and Provisioning*, empty the *Config Server Path*.
     Life Line Mode: Auto
     NTP Server: 2.fr.pool.ntp.org
     
-If you want to debug your HT813, then you might want to setup syslog. You can use to small software to setup a syslog server for Windows with a nice GUI. https://github.com/MaxBelkov/visualsyslog/tree/v1.6.4
+If you want to debug your HT813, then you might want to setup syslog. You can use this software to setup a syslog server for Windows with a nice GUI. https://github.com/MaxBelkov/visualsyslog/tree/v1.6.4
 
 ### FXS Port
 
