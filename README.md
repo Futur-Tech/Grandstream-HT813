@@ -86,10 +86,10 @@ If you have a VLAN for your VOIP network then you can set it here. Be sure to ha
 
     802.1Q/VLAN Tag: your_VLAN_ID
     
-Under *Firmware Upgrade and Provisioning*, empty the *Config Server Path*.
+Under *Firmware Upgrade and Provisioning*, empty the *Config Server Path*. I advise you also to enable Automatic Upgrade.
 
-    3CX Auto Provision: No
-    
+    3CX Auto Provision: No (for added security)
+    Enable TR-069: No (for added security)
     System Ring Cadence: c=1500/3500;
     Dial Tone: f1=440@-10,f2=0@-10,c=0/0;
     Ringback Tone: f1=440@-10,f2=0@-10,c=1500/3500;
