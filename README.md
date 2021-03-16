@@ -154,3 +154,13 @@ The HT813 can block anonymous caller... but I decided to not activate the option
 If you have gain or echo problems, you should modify your gain settings in the FXS/FXO pages. The change of gain listed above are for my phone lines and might not apply to you.
 
 ## Credits
+
+Here are the ressources which helped me to compile those settings.
+
+- Raspberry, Asterisk, Freepbx, SPA3102, Freebox (in french): https://www.planete-domotique.com/blog/2013/05/30/raspberry-asterisk-freepbx-spa3102-freebox-tout-y-est/
+- Problem with HT813 FXO port: https://forums.grandstream.com/t/problem-with-ht813-fxo-port/34210/16
+- Grandstream HT503 ATA Configuration with Asterisk FreePBX: https://www.youtube.com/watch?v=J6oJSMDJzEI
+- Linksys 3102 for Dummies: http://www.fredshack.com/docs/linksys_3102.html
+- Configuring a Grandstream HT503 Device to act as an FXO Gateway: https://wiki.freepbx.org/pages/viewpage.action?pageId=33293313 (for the "Additional Notes From Another User")
+- Caller ID in SIP and Asterisk: https://kb.smartvox.co.uk/asterisk/how-it-works/caller-id-in-sip-and-asterisk-part-1/
+
