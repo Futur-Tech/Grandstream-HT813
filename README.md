@@ -2,6 +2,8 @@
 
 This is notes of my settings for using a Grandsteam HT813 with a french PSTN line with FreePBX.
 
+> Manual https://www.grandstream.com/hubfs/Product_Documentation/HT813_Administration_Guide.pdf
+
 FreePBX: 15.0.17.24
 
 Grandstream HT813: 1.0.9.1 
@@ -132,11 +134,12 @@ If you want to debug your HT813, then you might want to setup syslog. You can us
     Allow Incoming SIP Messages from SIP Proxy Only: Yes
     SIP REGISTER Contact Header Uses: WAN Address
     Preferred Vocoder choice 1->7: PCMA
+    Voice Frames per TX: 10
     Caller ID Transport Type: Relay via SIP P-Asserted-Identity
+    Gain: TX +2dB RX 0db
     Enable PSTN Disconnect Tone Detection: Yes
     PSTN Disconnect Tone: f1=440@-30,f2=440@-30,c=500/500;
-    AC Termination Model: Country-based
-    Country-based: FRANCE
+    AC Termination Model: Auto-Detected
     Number of Rings: 2 (if you put 1, the system will not get Caller ID)
     PSTN Ring Thru FXS: No
     Stage Method (1/2): 1
